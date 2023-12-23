@@ -13,10 +13,21 @@ struct TodoModel {
         case inProgress
         case complete
     }
+    
+    enum Priority {
+        case low
+        case medium
+        case high
+    }
 
+    let id: UUID = UUID()
     let title: String
     let planDatetime: Date
     let status: Status
+    let note: String
+    let description: String
+    let priority: Priority
+    let label: String
 }
 
 
