@@ -5,13 +5,24 @@
 //  Created by Yusuke Inoue on 2023/12/16.
 //
 
-import Foundation
+import UIKit
 
 struct TodoModel {
     enum Status {
         case incomplete
         case inProgress
         case complete
+        
+        var icon: UIImage {
+            switch self {
+            case .complete:
+                return UIImage(systemName: "checkmark.circle.fill")!
+            case .incomplete:
+                return UIImage(systemName: "checkmark.circle")!
+            case .inProgress:
+                return UIImage(systemName: "clock")!
+            }
+        }
     }
     
     enum Priority {
@@ -23,7 +34,7 @@ struct TodoModel {
     let id: UUID = UUID()
     let title: String
     let planDatetime: Date
-    let status: Status
+    var status: Status // 変更
     let note: String
     let description: String
     let priority: Priority

@@ -8,7 +8,7 @@
 import Foundation
 
 class TodoListModel {
-    fileprivate var todoList: [TodoModel] = []
+    private(set) var todoList: [TodoModel] = []
 
     func search() -> [TodoModel] {
         return todoList
@@ -35,6 +35,25 @@ class TodoListModel {
     }
     
     func deleteById(id: UUID) {
-        // 宿題
+        todoList.removeAll { todoModel in
+            todoModel.id == id
+        }
+    }
+
+    // 他の関数
+    
+    func changeStatusById(id: UUID) {
+        if let index = todoList.firstIndex(where: { $0.id == id }) {
+            switch todoList[index].status {
+            case .inProgress:
+                todoList[index].status = .complete
+            case .incomplete:
+                todoList[index].status = .inProgress
+            case .complete:
+                todoList[index].status = .incomplete
+            }
+        }
     }
 }
+
+
