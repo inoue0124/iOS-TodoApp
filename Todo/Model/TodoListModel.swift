@@ -8,7 +8,12 @@
 import Foundation
 
 class TodoListModel {
-    private(set) var todoList: [TodoModel] = []
+    let notificationCenter = NotificationCenter()
+    private(set) var todoList: [TodoModel] = [] {
+        didSet {
+            notificationCenter.post(name: .init("todoList"), object: nil, userInfo: nil)
+        }
+    }
 
     func search() -> [TodoModel] {
         return todoList
@@ -39,8 +44,6 @@ class TodoListModel {
             todoModel.id == id
         }
     }
-
-    // 他の関数
     
     func changeStatusById(id: UUID) {
         if let index = todoList.firstIndex(where: { $0.id == id }) {
