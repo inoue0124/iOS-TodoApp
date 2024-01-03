@@ -34,34 +34,33 @@ class TodoListViewController: UIViewController {
         
         todoListView.todoListTable.dataSource = self
         todoListView.todoListTable.delegate = self
-        // 追加
         todoListView.todoListTable.register(
             .init(nibName: "TodoListTableCell", bundle: .main),
             forCellReuseIdentifier: "TodoListTableCell"
+        )
+        
+        todoListModel.notificationCenter.addObserver(forName: .init("todoList"), object: nil, queue: nil, using: { _ in
+                self.todoListView.todoListTable.reloadData()
+            }
         )
     }
 
     override func loadView() {
         view = todoListView
     }
-    
-    @objc func onTapTodoCellIcon(index: Int) {
-        
-    }
 }
 
 extension TodoListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        todoListModel.todoList.count
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoListTableCell") as! TodoListTableCell
+        let data = todoListModel.todoList[indexPath.row]
+        cell.setUI(title: data.title, label: data.label, iconImage: data.status.icon)
+        cell.delegate = self // 追加
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "TodoListTableCell")
-        let data = todoListModel.todoList[indexPath.row]
-        cell.textLabel?.text = data.title
-        cell.detailTextLabel?.text = data.label
-        cell.imageView?.image = data.status.icon
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        todoListModel.todoList.count
     }
 }
 
@@ -72,6 +71,15 @@ extension TodoListViewController: UITableViewDelegate {
     ) {
         let data = todoListModel.todoList[indexPath.row]
         print(data)
+    }
+}
+
+extension TodoListViewController: TodoListTableCellDelegate {
+    func onSelectCell(for cell: TodoListTableCell) {
+        if let indexPath = todoListView.todoListTable.indexPath(for: cell) {
+            let data = todoListModel.todoList[indexPath.row]
+            todoListModel.changeStatusById(id: data.id)
+        }
     }
 }
 

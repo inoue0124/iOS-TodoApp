@@ -12,6 +12,8 @@ class TodoListTableCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var todoTitle: UILabel!
     @IBOutlet weak var todoLabel: UILabel!
+    
+    var delegate: TodoListTableCellDelegate? // 追加
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +30,22 @@ class TodoListTableCell: UITableViewCell {
         icon.image = iconImage
         todoTitle.text = title
         todoLabel.text = label
+        icon.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(onTapCell)
+            )
+        )
+        icon.isUserInteractionEnabled = true
+    }
+    
+    @objc func onTapCell() {
+        // delegateがnilだと実行されない
+        delegate?.onSelectCell(for: self)
     }
 }
+
+protocol TodoListTableCellDelegate {
+    func onSelectCell(for cell: TodoListTableCell)
+}
+
