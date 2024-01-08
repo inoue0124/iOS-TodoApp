@@ -9,7 +9,7 @@ import UIKit
 
 class TodoListViewController: UIViewController {
     let todoListView = TodoListView()
-    let todoListModel = TodoListModel()
+    let todoListModel = TodoListModel.shared // 修正
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +43,17 @@ class TodoListViewController: UIViewController {
                 self.todoListView.todoListTable.reloadData()
             }
         )
+        
+        todoListView.addTodoButton.addTarget(self, action: #selector(onTapAddTodoButton), for: .touchUpInside)
     }
 
     override func loadView() {
         view = todoListView
+    }
+    
+    @objc func onTapAddTodoButton() {
+        let addTodoVC = AddTodoViewController()
+        present(addTodoVC, animated: true)
     }
 }
 

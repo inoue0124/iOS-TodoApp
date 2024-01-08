@@ -1,15 +1,15 @@
 //
-//  TodoListView.swift
+//  AddTodoView.swift
 //  Todo
 //
-//  Created by Yusuke Inoue on 2023/12/23.
+//  Created by Yusuke Inoue on 2024/01/03.
 //
 
 import UIKit
 
-class TodoListView: UIView {
-    @IBOutlet weak var todoListTable: UITableView!
-    @IBOutlet weak var addTodoButton: UIButton!
+class AddTodoView: UIView {
+    @IBOutlet weak var todoTitle: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
 
     init() {
         super.init(frame: .zero)

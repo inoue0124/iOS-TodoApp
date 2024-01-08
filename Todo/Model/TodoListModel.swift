@@ -7,7 +7,10 @@
 
 import Foundation
 
-class TodoListModel {
+final class TodoListModel {
+    static let shared = TodoListModel()
+    private init() {}
+
     let notificationCenter = NotificationCenter()
     private(set) var todoList: [TodoModel] = [] {
         didSet {

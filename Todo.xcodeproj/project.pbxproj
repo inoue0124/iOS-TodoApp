@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		701949482B44245000403FF2 /* TodoListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701949462B44245000403FF2 /* TodoListTableCell.swift */; };
 		701949492B44245000403FF2 /* TodoListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701949472B44245000403FF2 /* TodoListTableCell.xib */; };
+		7019494C2B4596A700403FF2 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019494B2B4596A700403FF2 /* AddTodoView.swift */; };
+		701949502B4596CB00403FF2 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7019494F2B4596CB00403FF2 /* AddTodoViewController.swift */; };
+		7098AC602B45C38400357848 /* AddTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7098AC5F2B45C38400357848 /* AddTodoView.xib */; };
 		70ED9C642B2D2F4200F2D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C632B2D2F4200F2D93B /* AppDelegate.swift */; };
 		70ED9C662B2D2F4200F2D93B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C652B2D2F4200F2D93B /* SceneDelegate.swift */; };
 		70ED9C682B2D2F4200F2D93B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C672B2D2F4200F2D93B /* TodoListViewController.swift */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		701949462B44245000403FF2 /* TodoListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableCell.swift; sourceTree = "<group>"; };
 		701949472B44245000403FF2 /* TodoListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListTableCell.xib; sourceTree = "<group>"; };
+		7019494B2B4596A700403FF2 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
+		7019494F2B4596CB00403FF2 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
+		7098AC5F2B45C38400357848 /* AddTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoView.xib; sourceTree = "<group>"; };
 		70ED9C602B2D2F4200F2D93B /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70ED9C632B2D2F4200F2D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70ED9C652B2D2F4200F2D93B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +62,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7019494A2B45969400403FF2 /* AddTodo */ = {
+			isa = PBXGroup;
+			children = (
+				7019494B2B4596A700403FF2 /* AddTodoView.swift */,
+				7098AC5F2B45C38400357848 /* AddTodoView.xib */,
+				7019494F2B4596CB00403FF2 /* AddTodoViewController.swift */,
+			);
+			path = AddTodo;
+			sourceTree = "<group>";
+		};
 		70ED9C572B2D2F4200F2D93B = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +93,7 @@
 			children = (
 				70ED9C632B2D2F4200F2D93B /* AppDelegate.swift */,
 				70ED9C652B2D2F4200F2D93B /* SceneDelegate.swift */,
+				7019494A2B45969400403FF2 /* AddTodo */,
 				701949452B441E5B00403FF2 /* Model */,
 				70ED9C9A2B36679200F2D93B /* TodoList */,
 				70ED9C6C2B2D2F4300F2D93B /* Assets.xcassets */,
@@ -159,6 +176,7 @@
 				701949492B44245000403FF2 /* TodoListTableCell.xib in Resources */,
 				70ED9C702B2D2F4300F2D93B /* LaunchScreen.storyboard in Resources */,
 				70ED9C6D2B2D2F4300F2D93B /* Assets.xcassets in Resources */,
+				7098AC602B45C38400357848 /* AddTodoView.xib in Resources */,
 				70ED9C9E2B3667FE00F2D93B /* TodoListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,8 +192,10 @@
 				701949482B44245000403FF2 /* TodoListTableCell.swift in Sources */,
 				70ED9C682B2D2F4200F2D93B /* TodoListViewController.swift in Sources */,
 				70ED9CA02B36681000F2D93B /* TodoListView.swift in Sources */,
+				701949502B4596CB00403FF2 /* AddTodoViewController.swift in Sources */,
 				70ED9C792B2D317E00F2D93B /* TodoModel.swift in Sources */,
 				70ED9C642B2D2F4200F2D93B /* AppDelegate.swift in Sources */,
+				7019494C2B4596A700403FF2 /* AddTodoView.swift in Sources */,
 				70ED9C662B2D2F4200F2D93B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
