@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoListView" customModule="Todo" customModuleProvider="target">
             <connections>
+                <outlet property="addTodoButton" destination="aYb-eX-fG3" id="2sr-fn-V6P"/>
                 <outlet property="todoListTable" destination="kJV-m1-JGs" id="Vhm-BM-wTN"/>
             </connections>
         </placeholder>
@@ -22,10 +23,22 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-eX-fG3">
+                    <rect key="frame" x="308.66666666666669" y="733.66666666666663" width="52.333333333333314" height="52.333333333333371"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="aYb-eX-fG3" secondAttribute="height" multiplier="1:1" id="8sW-4K-wUZ"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="+" cornerStyle="capsule">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
+                    </buttonConfiguration>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aYb-eX-fG3" secondAttribute="bottom" constant="32" id="Dka-6m-7s4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aYb-eX-fG3" secondAttribute="trailing" constant="32" id="hE2-TD-sWg"/>
                 <constraint firstItem="kJV-m1-JGs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="j4C-jK-9iw"/>
                 <constraint firstItem="kJV-m1-JGs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l63-8v-TVe"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kJV-m1-JGs" secondAttribute="bottom" id="pbR-QG-2nP"/>
