@@ -13,25 +13,6 @@ class TodoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        todoListModel.add(
-            title: "Todo1",
-            planDatetime: Date(),
-            status: .incomplete,
-            note: "Todo1のメモ",
-            description: "Todo1の概要",
-            priority: .low,
-            label: "仕事"
-        )
-        todoListModel.add(
-            title: "Todo2",
-            planDatetime: Date(),
-            status: .incomplete,
-            note: "Todo2のメモ",
-            description: "Todo2の概要",
-            priority: .low,
-            label: "プライベート"
-        )
-        
         todoListView.todoListTable.dataSource = self
         todoListView.todoListTable.delegate = self
         todoListView.todoListTable.register(

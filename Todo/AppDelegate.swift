@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+
+let db = Firestore.firestore()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // 差分だよ
-        // 差分2
+        FirebaseApp.configure()
         return true
     }
 

@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct TodoModel {
-    enum Status {
+struct TodoModel: Codable { // 追加
+    enum Status: String, Codable { // 追加
         case incomplete
         case inProgress
         case complete
@@ -25,13 +25,13 @@ struct TodoModel {
         }
     }
     
-    enum Priority {
+    enum Priority: String, Codable { // 追加
         case low
         case medium
         case high
     }
 
-    let id: UUID = UUID()
+    var id: UUID = UUID() // 変更
     let title: String
     let planDatetime: Date
     var status: Status // 変更
