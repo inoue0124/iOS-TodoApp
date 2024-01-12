@@ -41,6 +41,8 @@
 		7098ACB92B518EA700357848 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7098ACB82B518EA700357848 /* FirebaseStorageCombine-Community */; };
 		7098ACBB2B518EFF00357848 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7098ACBA2B518EFF00357848 /* GoogleService-Info.plist */; };
 		7098ACC12B51975700357848 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098ACC02B51975700357848 /* TodoRepository.swift */; };
+		7098ACC32B51A38100357848 /* UserDefaultsTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098ACC22B51A38100357848 /* UserDefaultsTodoRepository.swift */; };
+		7098ACC52B51A39E00357848 /* FirestoreTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098ACC42B51A39E00357848 /* FirestoreTodoRepository.swift */; };
 		70ED9C642B2D2F4200F2D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C632B2D2F4200F2D93B /* AppDelegate.swift */; };
 		70ED9C662B2D2F4200F2D93B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C652B2D2F4200F2D93B /* SceneDelegate.swift */; };
 		70ED9C682B2D2F4200F2D93B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED9C672B2D2F4200F2D93B /* TodoListViewController.swift */; };
@@ -60,6 +62,8 @@
 		7098AC5F2B45C38400357848 /* AddTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoView.xib; sourceTree = "<group>"; };
 		7098ACBA2B518EFF00357848 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7098ACC02B51975700357848 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
+		7098ACC22B51A38100357848 /* UserDefaultsTodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTodoRepository.swift; sourceTree = "<group>"; };
+		7098ACC42B51A39E00357848 /* FirestoreTodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTodoRepository.swift; sourceTree = "<group>"; };
 		70ED9C602B2D2F4200F2D93B /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70ED9C632B2D2F4200F2D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70ED9C652B2D2F4200F2D93B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				70ED9C9B2B3667BA00F2D93B /* TodoListModel.swift */,
 				70ED9C782B2D317E00F2D93B /* TodoModel.swift */,
 				7098ACC02B51975700357848 /* TodoRepository.swift */,
+				7098ACC22B51A38100357848 /* UserDefaultsTodoRepository.swift */,
+				7098ACC42B51A39E00357848 /* FirestoreTodoRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,7 +294,9 @@
 				701949502B4596CB00403FF2 /* AddTodoViewController.swift in Sources */,
 				7098ACC12B51975700357848 /* TodoRepository.swift in Sources */,
 				70ED9C792B2D317E00F2D93B /* TodoModel.swift in Sources */,
+				7098ACC32B51A38100357848 /* UserDefaultsTodoRepository.swift in Sources */,
 				70ED9C642B2D2F4200F2D93B /* AppDelegate.swift in Sources */,
+				7098ACC52B51A39E00357848 /* FirestoreTodoRepository.swift in Sources */,
 				7019494C2B4596A700403FF2 /* AddTodoView.swift in Sources */,
 				70ED9C662B2D2F4200F2D93B /* SceneDelegate.swift in Sources */,
 			);

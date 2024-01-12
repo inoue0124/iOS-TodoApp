@@ -10,18 +10,19 @@ import Foundation
 final class TodoListModel {
     static let shared = TodoListModel()
     private init() {
-        todoRepository = FirestoreTodoRepository()
+        // 変更
+        todoRepository = UserDefaultsTodoRepository()
         todoRepository.getAll { todoList in
             self.todoList = todoList
         }
     }
 
     let notificationCenter = NotificationCenter()
-    let todoRepository: TodoRepository
+    let todoRepository: TodoRepositoryProtocol // 追加
     private(set) var todoList: [TodoModel] = [] {
         didSet {
             notificationCenter.post(name: .init("todoList"), object: nil, userInfo: nil)
-            todoRepository.save(todoList: todoList)
+            todoRepository.save(todoList: todoList) // 変更
         }
     }
 
