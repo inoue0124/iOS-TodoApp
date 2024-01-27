@@ -1,2 +1,6 @@
 # TODOアプリ
 iOS開発自走力養成コースで作成するTODOアプリです。
+
+## セットアップ
+Firebaseプロジェクトを作成し、Firestoreを初期化してください。
+その後iOS向けのアプリをFirebaseプロジェクト内に作成し、GoogleService-Info.plistファイルをダウンロードしてプロジェクトのルートに配置してください。
