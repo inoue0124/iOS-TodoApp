@@ -11,7 +11,7 @@ final class TodoListModel {
     static let shared = TodoListModel()
     private init() {
         // 変更
-        todoRepository = UserDefaultsTodoRepository()
+        todoRepository = FirestoreTodoRepository()
         todoRepository.getAll { todoList in
             self.todoList = todoList
         }

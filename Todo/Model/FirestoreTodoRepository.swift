@@ -12,20 +12,20 @@ struct FirestoreTodoRepository: TodoRepositoryProtocol {
     func getAll(completion: @escaping ([TodoModel]) -> Void) {
         db.collection("todos").getDocuments() { snapshot, error in
             guard let snapshot = snapshot else {
+                completion([])
                 return
             }
-            return completion(snapshot.documents.map { $0.data() }.map { TodoModel.fromFirestoreData($0) })
+            let todoList = snapshot.documents
+                .map { $0.data() }
+                .map { TodoModel.fromFirestoreData($0)}
+            return completion(todoList)
         }
-        return completion([])
     }
     
     func save(todoList: [TodoModel]) {
-        let batch = db.batch()
         todoList.forEach { todo in
-            let todoRef = db.collection("todos").document(todo.id.uuidString)
-            batch.setData(todo.toFirestoreData(), forDocument: todoRef)
+            db.collection("todos").document(todo.id.uuidString).setData(todo.toFirestoreData())
         }
-        batch.commit()
     }
 }
 
@@ -45,14 +45,14 @@ extension TodoModel {
     
     static func fromFirestoreData(_ data: [String: Any]) -> TodoModel {
         return TodoModel(
-            id: UUID(uuidString: data["id"] as! String)!,
-            title: data["title"] as! String,
-            planDatetime: (data["planDatetime"] as! Timestamp).dateValue(),
-            status: .init(rawValue: data["status"] as! String)!,
-            note: data["note"] as! String,
-            description: data["description"] as! String,
-            priority: .init(rawValue: data["priority"] as! String)!,
-            label: data["label"] as! String
+            id: UUID(uuidString: data["id"] as? String ?? "") ?? UUID(),
+            title: data["title"] as? String ?? "",
+            planDatetime: (data["planDatetime"] as? Timestamp ?? Timestamp()).dateValue(),
+            status: .init(rawValue: data["status"] as? String ?? "") ?? .incomplete,
+            note: data["note"] as? String ?? "",
+            description: data["description"] as? String ?? "",
+            priority: .init(rawValue: data["priority"] as? String ?? "") ?? .low,
+            label: data["label"] as? String ?? ""
         )
     }
 }
