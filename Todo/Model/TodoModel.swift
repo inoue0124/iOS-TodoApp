@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TodoModel: Codable { // 追加
+struct TodoModel: Codable, Identifiable { // 追加
     enum Status: String, Codable { // 追加
         case incomplete
         case inProgress

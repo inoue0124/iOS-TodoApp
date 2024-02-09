@@ -5,21 +5,48 @@
 //  Created by Yusuke Inoue on 2023/12/23.
 //
 
-import UIKit
+import SwiftUI
 
-class TodoListView: UIView {
-    @IBOutlet weak var todoListTable: UITableView!
-    @IBOutlet weak var addTodoButton: UIButton!
-
-    init() {
-        super.init(frame: .zero)
-        let view = UINib(nibName: String(describing: type(of: self)), bundle: nil).instantiate(withOwner: self).first as! UIView
-        view.frame = bounds
-        addSubview(view)
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+struct TodoListView: View {
+    final class ViewState: ObservableObject {
+        @Published var todoList: [TodoModel] = []
     }
+    
+    @ObservedObject var viewState = ViewState()
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    var onTapIcon: (UUID) -> Void = { _ in }
+    var onTapAddTodoButton: () -> Void = {}
+
+    var body: some View {
+        ZStack(alignment: .bottomTrailing) {
+            List {
+                ForEach(viewState.todoList) { todo in
+                    HStack {
+                        Button(action: { onTapIcon(todo.id) }) {
+                            Image(uiImage: todo.status.icon)
+                                .renderingMode(.template)
+                                .foregroundColor(.blue)
+                        }
+                        Text(todo.title)
+                        Spacer()
+                        Text(todo.label)
+                            .foregroundColor(.orange)
+                    }
+                }
+            }
+            .listStyle(.plain)
+            
+            Button(action: onTapAddTodoButton) {
+                Text("+")
+                    .font(.title)
+                    .frame(width: 50, height: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .clipShape(Circle())
+            }
+            .padding(.trailing, 16)
+            .padding(.bottom, 16)
+        }
     }
 }
+
